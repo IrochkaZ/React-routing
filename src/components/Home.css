@@ -1,0 +1,16 @@
+
+*{
+    box-sizing: border-box;
+}
+
+img{
+    border-radius: 0 10px;
+    margin-bottom: 10px;
+}
+
+h1,h2{
+    margin-top:15px;
+}
+.person-information-list{
+    list-style-type: none;
+}
