@@ -25,16 +25,7 @@ class Clicker extends Component {
         'minus': this.counterMinus
     }
 
-    componentDidMount() {
-        console.log('componentDidMount()');
-    }
-
-    componentDidUpdate() {
-        console.log('componentDidUpdate()');
-    }
-
     render() {
-        console.log('render()')
         return (
             <div className='clicker'>
                 <Counter cnt={this.state.count} />
