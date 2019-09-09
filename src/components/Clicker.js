@@ -1,13 +1,14 @@
 import React from 'react';
 import { AppClicker } from '../Clickers/components/AppClicker';
 import { withRouter } from 'react-router-dom';
+import './clicker.css';
 
 
 class Clicker extends React.Component {
     constructor() {
         super();
         this.state = {
-            counter:[]
+            counter: []
         };
     }
 
@@ -18,35 +19,31 @@ class Clicker extends React.Component {
     }
 
     addClicker = () => {
-        const {counter} = this.state;
+        const { counter } = this.state;
         const arr = counter;
-        const counterNum = counter.length
-        arr.push({counterNum:0});
-        this.setState({counter:arr});
-        // console.log('click', counter.length)
+        if (arr.length <= 4) {
+            arr.push(0);
+        }
+        this.setState({ counter: arr });
+        console.log(this.state.counter);
     };
 
     render() {
-
-        const addClickerApp = () =>{
-            const {counter} = this.state;
-            console.log('1')
-            if(counter.length>0){
-                return counter.forEach((counter)=>{
-                    return(
-                        <AppClicker counter={counter}/>
-                    )
-                })
-            }
+        const { counter } = this.state;
+        const appClicker = [];
+        if (counter.length > 0 && counter.length <= 5) {
+            counter.forEach((item, index) => {
+                appClicker.push(<AppClicker key={`counter${index}`} />);
+            });
         }
-
-
 
         return (
             <div>
-                {addClickerApp}
                 <button className="btn btn-secondary" onClick={this.addClicker}>Add Clicker</button>
                 <button className="btn btn-secondary" onClick={this.goToHomePage}>Return Home</button>
+                <div className="myClickers">
+                    {appClicker}
+                </div>
             </div>
         )
     }

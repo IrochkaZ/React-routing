@@ -1,0 +1,5 @@
+.myClickers{
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+}
